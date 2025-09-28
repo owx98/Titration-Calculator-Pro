@@ -1,11 +1,11 @@
-
 import React, { useState, useEffect, FormEvent } from 'react';
 import { TitrationType, VolumeUnit, TitrationInput, TitrationResult, ConcentrationUnit } from '../types';
-import { TITRATION_TYPE_OPTIONS, TITRATION_LABELS } from '../constants';
+import { TITRATION_TYPE_OPTIONS, TITRATION_LABELS, TITRATION_INFO } from '../constants';
 import { Card, CardHeader, CardContent } from './Card';
 import { Input } from './Input';
 import { Select } from './Select';
 import { Button } from './Button';
+import { ExplanationPanel } from './ExplanationPanel';
 
 interface CalculatorFormProps {
   onCalculate: (input: TitrationInput, result: TitrationResult) => void;
@@ -121,6 +121,8 @@ export const CalculatorForm: React.FC<CalculatorFormProps> = ({ onCalculate }) =
           <Select id="titrationType" name="titrationType" label="Titration Type" value={formData.titrationType} onChange={handleChange}>
             {TITRATION_TYPE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
           </Select>
+          
+          <ExplanationPanel info={TITRATION_INFO[formData.titrationType]} />
 
           {/* Titrant Section */}
           <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
