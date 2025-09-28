@@ -1,0 +1,5 @@
+{
+  "name": "Titration Calculator Pro",
+  "description": "A modern, user-friendly application that calculates the concentration of an analyte after a titration. It supports various titration types, unit conversions, dark mode, and saves calculation history.",
+  "requestFramePermissions": []
+}
